@@ -4,74 +4,72 @@ import HeaderLink from "./HeaderLink.astro";
 ---
 
 <header>
-	<nav>
-		<h2><a href="/">{SITE_TITLE}</a></h2>
+  <nav>
+    <div class="identity">
+      <a href="/">{SITE_TITLE}</a>
+    </div>
 
-		<div class="internal-links">
-			<HeaderLink href="/">Home</HeaderLink>
-			<HeaderLink href="/work">Work</HeaderLink>
-			<HeaderLink href="/blog">Journal</HeaderLink>
-			<HeaderLink href="/about">About</HeaderLink>
-		</div>
+    <div class="links">
+      <HeaderLink href="/">Home</HeaderLink>
+      <HeaderLink href="/work">Work</HeaderLink>
+      <HeaderLink href="/blog">Journal</HeaderLink>
+      <HeaderLink href="/now">Now</HeaderLink>
+    </div>
 
-		<div class="social-links">
-			<a href="https://github.com/PuneetPuli" target="_blank" rel="noreferrer">GitHub</a>
-			<a href="mailto:puli.puneet@gmail.com">Email</a>
-		</div>
-	</nav>
+    <div class="external">
+      <a href="https://github.com/PuneetPuli" target="_blank" rel="noreferrer">GitHub</a>
+      <a href="mailto:puli.puneet@gmail.com">Email</a>
+    </div>
+  </nav>
 </header>
 
 <style>
-	header {
-		margin: 0;
-		padding: 0 20px;
-		background: var(--bg);
-		border-bottom: 1px solid var(--line);
-	}
+  header {
+    border-bottom: 1px solid var(--line);
+    background: var(--bg);
+  }
 
-	nav {
-		max-width: var(--max);
-		margin: 0 auto;
-		display: flex;
-		align-items: baseline;
-		justify-content: space-between;
-		gap: 14px;
-		padding: 18px 0;
-	}
+  nav {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 18px 20px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: baseline;
+    gap: 16px;
+  }
 
-	h2 {
-		margin: 0;
-		font-size: 0.95rem;
-		letter-spacing: -0.01em;
-	}
+  .identity a {
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    border-bottom: none;
+  }
 
-	h2 a {
-		text-decoration: none;
-		border-bottom: 0;
-	}
+  .links,
+  .external {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
 
-	.internal-links,
-	.social-links {
-		display: flex;
-		gap: 12px;
-		flex-wrap: wrap;
-		align-items: baseline;
-	}
+  /* Let global.css control underline + hover */
+  :global(header a) {
+    border-bottom-width: 1px;
+  }
 
-	/* Let global.css control link underline style; keep active subtle */
-	:global(nav a) {
-		padding: 0;
-		border-bottom-width: 1px;
-	}
+  :global(header a.active) {
+    border-bottom-color: var(--fg);
+  }
 
-	:global(nav a.active) {
-		border-bottom-color: var(--fg);
-	}
-
-	@media (max-width: 720px) {
-		.social-links {
-			display: none;
-		}
-	}
+  @media (max-width: 720px) {
+    nav {
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+    .external {
+      display: none;
+    }
+  }
 </style>
 

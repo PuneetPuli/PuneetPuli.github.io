@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Trips</title>
+
+  <!-- favicon (data URL only, as required) -->
+  <link
+    rel="icon"
+    type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23f5f4ef'/%3E%3Cpath d='M 16 8 L 24 20 L 8 20 Z' fill='none' stroke='%230b0c0f' stroke-width='1.5' stroke-linejoin='miter'/%3E%3Cline x1='6' y1='20' x2='26' y2='20' stroke='%230b0c0f' stroke-width='1.5'/%3E%3Ccircle cx='16' cy='24' r='1.5' fill='%230b0c0f'/%3E%3C/svg%3E"
+  >
+
+  <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <!-- your existing nav goes here -->
+  </header>
+
+  <main class="content">
+    <h1>Trips</h1>
+
+    <article class="trip">
+      <h2>Alpine Loop</h2>
+      <p>Cold air. Quiet trail..</p>
+
+      <!-- Photos injected here -->
+      <section id="trip-photos"></section>
+    </article>
+  </main>
+
+  <!-- Photo renderer -->
+<script>
+  const container = document.getElementById("trip-photos");
+
+  for (let i = 50; i >= 1; i--) {
+    const figure = document.createElement("figure");
+    figure.className = "photo";
+
+    const img = document.createElement("img");
+    img.src = `images/img${i}.jpg`;   // <-- relative path (important)
+    img.alt = `Trip photo ${i}`;
+    img.loading = "lazy";
+
+    img.onerror = () => figure.remove();
+
+    figure.appendChild(img);
+    container.appendChild(figure);
+  }
+</script>
+
+  <script>
+    fetch("/header.html")
+      .then(r => r.text())
+      .then(html => document.getElementById("header").innerHTML = html);
+  </script>
+</body>
+</html>

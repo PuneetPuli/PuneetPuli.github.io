@@ -40,11 +40,17 @@ body{
    Layout
 ------------------------- */
 
-.content {
+.content{
   max-width: var(--max);
   margin: 0 auto;
-  padding: 2rem 1rem;
+
+  padding: clamp(2rem, 6vw, 4.5rem)
+           clamp(1rem, 4vw, 1.5rem);
+
+  padding-left: max(clamp(1rem, 4vw, 1.5rem), var(--safe-area-left));
+  padding-right: max(clamp(1rem, 4vw, 1.5rem), var(--safe-area-right));
 }
+
 
 header{
   border-bottom:1px solid var(--line);

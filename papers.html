@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23f5f4ef'/%3E%3Cpath d='M 16 8 L 24 20 L 8 20 Z' fill='none' stroke='%230b0c0f' stroke-width='1.5' stroke-linejoin='miter'/%3E%3Cline x1='6' y1='20' x2='26' y2='20' stroke='%230b0c0f' stroke-width='1.5'/%3E%3Ccircle cx='16' cy='24' r='1.5' fill='%230b0c0f'/%3E%3C/svg%3E">
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <link rel="stylesheet" href="./style.css">
+  <title>Papers · The Workshop</title>
+</head>
+
+<body>
+  <div id="header"></div>
+
+  <main class="content">
+    <div class="kicker">Papers</div>
+    <h1>Preprints & Notes</h1>
+
+    <p class="small">
+      Research notes, preprints, and technical writing.
+    </p>
+
+    <hr>
+
+    <!-- Paper entry -->
+    <h2>Paper Title Goes Here</h2>
+    <p class="small">
+      2025 · arXiv:
+      <a href="https://arxiv.org/abs/XXXX.XXXXX">XXXX.XXXXX</a>
+      ·
+      <a href="./paper, etc./mypaper.pdf">PDF</a>
+      ·
+    </p>
+
+    <p>
+      One–two sentence abstract or motivation. Keep it human-readable.
+    </p>
+
+    <!-- Optional embed -->
+    <iframe
+      src="./paper, etc./mypaper.pdf"
+      width="100%"
+      height="900"
+      style="border:0;">
+    </iframe>
+
+    <hr>
+
+    <!-- Add more papers below by copy-pasting the block -->
+
+    <div class="footer">© 2025 Puneet Puli.</div>
+  </main>
+
+  <script>
+    fetch("./header.html")
+      .then(r => r.text())
+      .then(html => document.getElementById("header").innerHTML = html);
+  </script>
+</body>
+</html>
